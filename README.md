@@ -11,7 +11,7 @@
 
 <p align="center">  <sub>两份 PDF 分别运行在独立窗口中，页码、缩放与阅读位置互不影响。</sub></p>
 
-## 为什么选择纸间 PDF
+## 功能
 
 * **本地优先**：应用不声明网络权限，不上传文档，也不依赖云端账号。
 * **真正独立的多文档窗口**：每份 PDF 对应独立的 Android 阅读任务，可使用系统分屏或自由窗口。
@@ -84,54 +84,6 @@
 请前往本仓库的 **Releases** 页面下载最新 APK。
 
 > 如果设备上安装过签名不同的旧版本，首次切换正式签名包时可能需要先卸载旧版本。卸载会清除应用数据库，请先备份需要保留的标注和书签。
-
-## 使用
-
-1. 打开应用，在“历史文档”中点击已有 PDF，或切换到“手机文件”选择文件。
-2. Android 11 及以上如需扫描完整内部存储，可授予“所有文件访问”；也可使用“选择文件夹”仅授权指定目录。
-3. 点击文档库中的另一份 PDF，会创建第二个独立阅读窗口。
-4. 在最近任务中选择两份纸间 PDF 任务并进入分屏，即可对照阅读。
-5. 阅读页右上角菜单提供搜索、目录、缩略图、书签、分享、导出和阅读设置。
-
-## 从源码构建
-
-### 环境
-
-* JDK 21
-* Android SDK 36
-* Android Build Tools 36
-* Gradle 8.13 Wrapper（工程已包含）
-* 不需要单独安装 NDK，PDFium 使用预编译 AAR
-
-### 构建 Debug APK
-
-> 将下面的 `OWNER` 替换为实际的 GitHub 用户名或组织名。
-
-Windows：
-
-    git clone https://github.com/OWNER/paperpdf.git
-    cd paperpdf
-    .\gradlew.bat assembleDebug
-
-macOS / Linux：
-
-    git clone https://github.com/OWNER/paperpdf.git
-    cd paperpdf
-    ./gradlew assembleDebug
-
-输出文件：
-
-    app/build/outputs/apk/debug/app-debug.apk
-
-### 构建 Release APK
-
-1. 将 `keystore.properties.example` 复制为 `keystore.properties`；
-2. 填写密钥路径、密码、别名和密钥密码；
-3. 执行：
-
-    .\gradlew.bat assembleRelease
-
-密钥文件与配置已从源码包和版本控制中排除。GitHub Actions 发布流程及 Secrets 配置见源码包中的 `RELEASING.md`。
 
 ## 技术实现
 
